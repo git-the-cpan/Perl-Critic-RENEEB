@@ -1,5 +1,7 @@
 package Perl::Critic::Policy::RegularExpressions::RequireExtendedFormattingExceptForSplit;
 
+# ABSTRACT: Always use the C</x> modifier with regular expressions, except when the regex is used
+
 use 5.006001;
 use strict;
 use warnings;
@@ -98,17 +100,17 @@ sub _elem_has_split_as_sibling {
 
 1;
 
-
-
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
-Perl::Critic::Policy::RegularExpressions::RequireExtendedFormattingExceptForSplit
+Perl::Critic::Policy::RegularExpressions::RequireExtendedFormattingExceptForSplit - Always use the C</x> modifier with regular expressions, except when the regex is used
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 DESCRIPTION
 
@@ -130,12 +132,6 @@ comments into the pattern, thus making them much more readable.
         )*          # ...repeated zero or more times
         '           # a closing single quote
     }x;
-
-=head1 NAME
-
-Perl::Critic::Policy::RegularExpressions::RequireExtendedFormattingExceptForSplit
- - Always use the C</x> modifier with regular expressions, except when the regex is used
- to split
 
 =head1 CONFIGURATION
 
@@ -179,22 +175,23 @@ flags.
 =head1 TO DO
 
 Add an exemption for regular expressions that contain C<\Q> at the
-front and don't use C<\E> until the very end, if at all.
+beginning and don't use C<\E> until the very end, if at all.
+
+=for Pod::Coverage supported_parameters
 
 =head1 AUTHOR
 
-Renee Baecker <module@renee-baecker.de>
+Renee Baecker <reneeb@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2012 by Renee Baecker.
+This software is Copyright (c) 2015 by Renee Baecker.
 
 This is free software, licensed under:
 
   The Artistic License 2.0 (GPL Compatible)
 
 =cut
-
 
 __END__
 
